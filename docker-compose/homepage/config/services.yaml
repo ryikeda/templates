@@ -1,0 +1,93 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+# icons found here https://github.com/walkxcode/dashboard-icons
+
+- Hypervisor:
+    - Proxmox:
+        icon: proxmox.svg
+        href: "{{HOMEPAGE_VAR_PROXMOX_ORION_URL}}"
+        ping: "{{HOMEPAGE_VAR_PROXMOX_ORION_URL}}"
+        description: Orion
+        widget:
+          type: proxmox
+          url: "{{HOMEPAGE_VAR_PROXMOX_ORION_URL}}"
+          username: "{{HOMEPAGE_VAR_PROXMOX_ORION_USERNAME}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_ORION_TOKEN}}"
+          node: orion
+    - Proxmox2:
+        icon: proxmox.svg
+        href: "{{HOMEPAGE_VAR_PROXMOX_SIRIUS_URL}}"
+        ping: "{{HOMEPAGE_VAR_PROXMOX_SIRIUS_URL}}"
+        description: Sirius
+        widget:
+          type: proxmox
+          url: "{{HOMEPAGE_VAR_PROXMOX_SIRIUS_URL}}"
+          username: "{{HOMEPAGE_VAR_PROXMOX_SIRIUS_USERNAME}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_SIRIUS_TOKEN}}"
+          node: sirius
+- Network:
+    - PiHole:
+        icon: pi-hole.svg
+        href: "{{HOMEPAGE_VAR_PIHOLE_ORION_URL}}"
+        ping: "{{HOMEPAGE_VAR_PIHOLE_ORION_URL}}"
+        description: Orion
+        widget:
+          type: pihole
+          url: "{{HOMEPAGE_VAR_PIHOLE_ORION_URL}}"
+          key: "{{HOMEPAGE_VAR_PIHOLE_ORION_TOKEN}}"
+    - NginxProxyManager:
+        icon: nginx-proxy-manager.svg
+        href: "{{HOMEPAGE_VAR_NPM_ORION_URL}}"
+        ping: "{{HOMEPAGE_VAR_NPM_ORION_URL}}"
+        description: Orion
+        widget:
+          type: npm
+          url: "{{HOMEPAGE_VAR_NPM_ORION_URL}}"
+          username: "{{HOMEPAGE_VAR_NPM_ORION_USERNAME}}"
+          password: "{{HOMEPAGE_VAR_NPM_ORION_PASSWORD}}"
+    - NginxProxyManager2:
+        icon: nginx-proxy-manager.svg
+        href: "{{HOMEPAGE_VAR_NPM_SIRIUS_URL}}"
+        ping: "{{HOMEPAGE_VAR_NPM_SIRIUS_URL}}"
+        description: Sirius
+        widget:
+          type: npm
+          url: "{{HOMEPAGE_VAR_NPM_SIRIUS_URL}}"
+          username: "{{HOMEPAGE_VAR_NPM_SIRIUS_USERNAME}}"
+          password: "{{HOMEPAGE_VAR_NPM_SIRIUS_PASSWORD}}"
+    - Router:
+        href: "{{HOMEPAGE_VAR_ROUTER_URL}}"
+        ping: "{{HOMEPAGE_VAR_ROUTER_URL}}"
+        description: TP-Link AC2600
+    - Switch:
+        href: "{{HOMEPAGE_VAR_SWITCH_URL}}"
+        ping: "{{HOMEPAGE_VAR_SWITCH_URL}}"
+        description: TL-SG1016DE
+- Containers:
+    - Portainer:
+        icon: portainer.svg
+        href: "{{HOMEPAGE_VAR_PORTAINER_ORION_URL}}"
+        ping: "{{HOMEPAGE_VAR_PORTAINER_ORION_URL}}"
+        description: Orion
+        widget:
+          type: portainer
+          url: "{{HOMEPAGE_VAR_PORTAINER_ORION_URL}}"
+          env: 1
+          key: "{{HOMEPAGE_VAR_PORTAINER_ORION_TOKEN}}"
+    - Portainer2:
+        icon: portainer.svg
+        href: "{{HOMEPAGE_VAR_PORTAINER_SIRIUS_URL}}"
+        ping: "{{HOMEPAGE_VAR_PORTAINER_SIRIUS_URL}}"
+        description: Sirius
+        widget:
+          type: portainer
+          url: "{{HOMEPAGE_VAR_PORTAINER_SIRIUS_URL}}"
+          env: 1
+          key: "{{HOMEPAGE_VAR_PORTAINER_SIRIUS_TOKEN}}"
+- Storage:
+    - NAS:
+        icon: asustor.svg
+        href: "{{HOMEPAGE_VAR_NAS_SIRIUS_URL}}"
+        ping: "{{HOMEPAGE_VAR_NAS_SIRIUS_URL}}"
+        description: AS5304T

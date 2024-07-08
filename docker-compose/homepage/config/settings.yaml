@@ -33,3 +33,7 @@ layout:
     header: true
     style: row
     columns: 4
+  Apps:
+    header: true
+    style: row
+    columns: 4

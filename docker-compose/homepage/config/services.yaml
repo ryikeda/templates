@@ -91,3 +91,18 @@
         href: "{{HOMEPAGE_VAR_NAS_SIRIUS_URL}}"
         ping: "{{HOMEPAGE_VAR_NAS_SIRIUS_URL}}"
         description: AS5304T
+- Apps:
+    - Jellyfin:
+        icon: jellyfin.svg
+        href: "{{HOMEPAGE_VAR_JELLYFIN_URL}}"
+        ping: "{{HOMEPAGE_VAR_JELLYFIN_URL}}"
+        description: Media steaming.
+        widget:
+          type: jellyfin
+          url: "{{HOMEPAGE_VAR_JELLYFIN_URL}}"
+          key: "{{HOMEPAGE_VAR_JELLYFIN_TOKEN}}"
+          enableBlocks: true # optional, defaults to false
+          enableNowPlaying: true # optional, defaults to true
+          enableUser: true # optional, defaults to false
+          showEpisodeNumber: true # optional, defaults to false
+          expandOneStreamToTwoRows: false # optional, defaults to true

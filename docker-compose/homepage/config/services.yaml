@@ -106,11 +106,11 @@
           url: "{{HOMEPAGE_VAR_PORTAINER_SIRIUS_URL}}"
           env: 1
           key: "{{HOMEPAGE_VAR_PORTAINER_SIRIUS_TOKEN}}"
-    - Portainer2:
+    - Portainer3:
         icon: portainer.svg
         href: "{{HOMEPAGE_VAR_PORTAINER_HELIX_URL}}"
         ping: "{{HOMEPAGE_VAR_PORTAINER_HELIX_URL}}"
-        description: Sirius
+        description: Helix
         widget:
           type: portainer
           url: "{{HOMEPAGE_VAR_PORTAINER_HELIX_URL}}"

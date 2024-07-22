@@ -26,6 +26,17 @@
           username: "{{HOMEPAGE_VAR_PROXMOX_SIRIUS_USERNAME}}"
           password: "{{HOMEPAGE_VAR_PROXMOX_SIRIUS_TOKEN}}"
           node: sirius
+    - Proxmox3:
+        icon: proxmox.svg
+        href: "{{HOMEPAGE_VAR_PROXMOX_HELIX_URL}}"
+        ping: "{{HOMEPAGE_VAR_PROXMOX_HELIX_URL}}"
+        description: Helix
+        widget:
+          type: proxmox
+          url: "{{HOMEPAGE_VAR_PROXMOX_HELIX_URL}}"
+          username: "{{HOMEPAGE_VAR_PROXMOX_HELIX_USERNAME}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_HELIX_TOKEN}}"
+          node: helix
 - Network:
     - PiHole:
         icon: pi-hole.svg

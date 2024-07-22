@@ -120,7 +120,6 @@
     - NAS:
         icon: asustor.svg
         href: "{{HOMEPAGE_VAR_NAS_SIRIUS_URL}}"
-        ping: "{{HOMEPAGE_VAR_NAS_SIRIUS_URL}}"
         description: AS5304T
 - Apps:
     - Jellyfin:

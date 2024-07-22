@@ -67,6 +67,16 @@
           url: "{{HOMEPAGE_VAR_NPM_SIRIUS_URL}}"
           username: "{{HOMEPAGE_VAR_NPM_SIRIUS_USERNAME}}"
           password: "{{HOMEPAGE_VAR_NPM_SIRIUS_PASSWORD}}"
+    - NginxProxyManager3:
+        icon: nginx-proxy-manager.svg
+        href: "{{HOMEPAGE_VAR_NPM_HELIX_URL}}"
+        ping: "{{HOMEPAGE_VAR_NPM_HELIX_URL}}"
+        description: Helix
+        widget:
+          type: npm
+          url: "{{HOMEPAGE_VAR_NPM_HELIX_URL}}"
+          username: "{{HOMEPAGE_VAR_NPM_HELIX_USERNAME}}"
+          password: "{{HOMEPAGE_VAR_NPM_HELIX_PASSWORD}}"
     - Router:
         href: "{{HOMEPAGE_VAR_ROUTER_URL}}"
         ping: "{{HOMEPAGE_VAR_ROUTER_URL}}"
@@ -96,6 +106,16 @@
           url: "{{HOMEPAGE_VAR_PORTAINER_SIRIUS_URL}}"
           env: 1
           key: "{{HOMEPAGE_VAR_PORTAINER_SIRIUS_TOKEN}}"
+    - Portainer3:
+        icon: portainer.svg
+        href: "{{HOMEPAGE_VAR_PORTAINER_HELIX_URL}}"
+        ping: "{{HOMEPAGE_VAR_PORTAINER_HELIX_URL}}"
+        description: Helix
+        widget:
+          type: portainer
+          url: "{{HOMEPAGE_VAR_PORTAINER_HELIX_URL}}"
+          env: 1
+          key: "{{HOMEPAGE_VAR_PORTAINER_HELIX_TOKEN}}"
 - Storage:
     - NAS:
         icon: asustor.svg

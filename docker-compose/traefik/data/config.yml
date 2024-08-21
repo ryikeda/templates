@@ -1,0 +1,77 @@
+http:
+  routers:
+    proxmox:
+      entryPoints:
+        - "https"
+      rule: 'Host(`proxmox.local.{{ env "DOMAIN_NAME" }}`)'
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: proxmox
+    pihole:
+      entryPoints:
+        - "https"
+      rule: 'Host(`pihole.local.{{ env "DOMAIN_NAME" }}`)'
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: pihole
+    portainer:
+      entryPoints:
+        - "https"
+      rule: 'Host(`portainer.local.{{ env "DOMAIN_NAME" }}`)'
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: portainer
+
+  services:
+    proxmox:
+      loadBalancer:
+        servers:
+          - url: 'https://{{ env "SUBNET_PREFIX" }}.10:8006'
+          - url: 'https://{{ env "SUBNET_PREFIX" }}.20:8006'
+          - url: 'https://{{ env "SUBNET_PREFIX" }}.30:8006'
+        passHostHeader: true
+    pihole:
+      loadBalancer:
+        servers:
+          - url: 'http://{{ env "SUBNET_PREFIX" }}.12:3141'
+        passHostHeader: true
+    portainer:
+      loadBalancer:
+        servers:
+          - url: 'https://{{ env "SUBNET_PREFIX" }}.21:9443'
+        passHostHeader: true
+
+  middlewares:
+    https-redirectscheme:
+      redirectScheme:
+        scheme: https
+        permanent: true
+    default-headers:
+      headers:
+        frameDeny: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 15552000
+        customFrameOptionsValue: SAMEORIGIN
+        customRequestHeaders:
+          X-Forwarded-Proto: https
+
+    default-whitelist:
+      ipAllowList:
+        sourceRange:
+        - '{{ env "SUBNET_RANGE" }}'
+
+    secured:
+      chain:
+        middlewares:
+        - default-whitelist
+        - default-headers

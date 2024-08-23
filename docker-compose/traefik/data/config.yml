@@ -18,15 +18,15 @@ http:
         - https-redirectscheme
       tls: {}
       service: pihole
-    portainer:
+    casaos:
       entryPoints:
         - "https"
-      rule: 'Host(`portainer.local.{{ env "DOMAIN_NAME" }}`)'
+      rule: 'Host(`casaos.local.{{ env "DOMAIN_NAME" }}`)'
       middlewares:
         - default-headers
         - https-redirectscheme
       tls: {}
-      service: portainer
+      service: casaos
 
   services:
     proxmox:
@@ -41,10 +41,10 @@ http:
         servers:
           - url: 'http://{{ env "SUBNET_PREFIX" }}.12:3141'
         passHostHeader: true
-    portainer:
+    casaos:
       loadBalancer:
         servers:
-          - url: 'https://{{ env "SUBNET_PREFIX" }}.21:9443'
+          - url: 'http://{{ env "SUBNET_PREFIX" }}.21'
         passHostHeader: true
 
   middlewares:
@@ -68,10 +68,10 @@ http:
     default-whitelist:
       ipAllowList:
         sourceRange:
-        - '{{ env "SUBNET_RANGE" }}'
+          - '{{ env "SUBNET_RANGE" }}'
 
     secured:
       chain:
         middlewares:
-        - default-whitelist
-        - default-headers
+          - default-whitelist
+          - default-headers

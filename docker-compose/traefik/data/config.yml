@@ -36,6 +36,15 @@ http:
         - https-redirectscheme
       tls: {}
       service: jellyfin
+    nas-01:
+      entryPoints:
+        - "https"
+      rule: 'Host(`nas-01.local.{{ env "DOMAIN_NAME" }}`)'
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: nas-01
 
   services:
     proxmox:
@@ -59,6 +68,11 @@ http:
       loadBalancer:
         servers:
           - url: 'http://{{ env "SUBNET_PREFIX" }}.21:8097'
+        passHostHeader: true
+    nas-01:
+      loadBalancer:
+        servers:
+          - url: 'http://{{ env "SUBNET_PREFIX" }}.50:8000'
         passHostHeader: true
 
   middlewares:

@@ -27,6 +27,15 @@ http:
         - https-redirectscheme
       tls: {}
       service: casaos
+    jellyin:
+      entryPoints:
+        - "https"
+      rule: 'Host(`jellyfin.local.{{ env "DOMAIN_NAME" }}`)'
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: jellyfin
 
   services:
     proxmox:
@@ -45,6 +54,11 @@ http:
       loadBalancer:
         servers:
           - url: 'http://{{ env "SUBNET_PREFIX" }}.21'
+        passHostHeader: true
+    jellyfin:
+      loadBalancer:
+        servers:
+          - url: 'http://{{ env "SUBNET_PREFIX" }}.21:8097'
         passHostHeader: true
 
   middlewares:

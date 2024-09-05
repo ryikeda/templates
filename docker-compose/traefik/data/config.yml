@@ -45,6 +45,15 @@ http:
         - https-redirectscheme
       tls: {}
       service: nas-01
+    stirling-pdf:
+      entryPoints:
+        - "https"
+      rule: 'Host(`stirling-pdf.local.{{ env "DOMAIN_NAME" }}`)'
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: stirling-pdf
 
   services:
     proxmox:
@@ -73,6 +82,11 @@ http:
       loadBalancer:
         servers:
           - url: 'http://{{ env "SUBNET_PREFIX" }}.50:8000'
+        passHostHeader: true
+    stirling-pdf:
+      loadBalancer:
+        servers:
+          - url: 'http://{{ env "SUBNET_PREFIX" }}.21:8080'
         passHostHeader: true
 
   middlewares:

@@ -61,7 +61,6 @@ http:
         servers:
           - url: 'https://{{ env "SUBNET_PREFIX" }}.10:8006'
           - url: 'https://{{ env "SUBNET_PREFIX" }}.20:8006'
-          - url: 'https://{{ env "SUBNET_PREFIX" }}.30:8006'
         passHostHeader: true
     pihole:
       loadBalancer:
